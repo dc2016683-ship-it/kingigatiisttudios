@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingi Gatini Studios</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background: linear-gradient(135deg,#cfefff,#8fd3ff);
+    color:#0f2a3a;
+    display:flex;
+    min-height:100vh;
+}
+
+/* SIDEBAR */
+.menu{
+    width:260px;
+    min-width:220px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(10px);
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    border-right:2px solid rgba(255,255,255,0.6);
+}
+
+h1{
+    font-size:24px;
+    text-align:center;
+    color:#1e6fa8;
+    margin-bottom:20px;
+}
+
+button{
+    margin-bottom:12px;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background: linear-gradient(135deg,#6ec6ff,#a8ddff);
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* CONTENIDO */
+.contenido{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+/* GALERIA */
+.galeria{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:15px;
+}
+
+.galeria a img{
+    width:140px;
+    max-width:30vw;
+    border-radius:15px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+.galeria a img:hover{
+    transform:scale(1.05);
+}
+
+/* CONTACTO */
+.contact-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 18px;
+    background: linear-gradient(135deg,#6ec6ff,#a8ddff);
+    color:white;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px){
+    body{
+        flex-direction:column;
+    }
+
+    .menu{
+        width:100%;
+        flex-direction:row;
+        justify-content:space-around;
+        align-items:center;
+        border-right:none;
+        border-bottom:2px solid rgba(255,255,255,0.6);
+    }
+
+    h1{
+        font-size:18px;
+        margin:0;
+    }
+
+    button{
+        margin:5px;
+        padding:10px;
+        font-size:12px;
+    }
+
+    .galeria a img{
+        width:110px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔊 sonido click -->
+<audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-interface-click-1126.mp3"></audio>
+
+<div class="menu">
+    <h1>Kingi Gatini 🎮</h1>
+    <button onclick="clickSound(); mostrar('juegos')">Juegos</button>
+    <button onclick="clickSound(); mostrar('contacto')">Contacto</button>
+    <button onclick="clickSound(); window.open('https://dc2016683-ship-it.github.io/artist-/','_blank')">Extras</button>
+</div>
+
+<div class="contenido" id="contenido">
+    Selecciona una opción
+</div>
+
+<script>
+
+function clickSound(){
+    let s=document.getElementById("clickSound");
+    s.currentTime=0;
+    s.play();
+}
+
+function mostrar(opcion){
+    let c=document.getElementById("contenido");
+
+    if(opcion==="juegos"){
+        c.innerHTML=`
+        <div>
+            Juegos de Gatini Studios 🎮
+            <div class="galeria">
+
+                <a href="https://www.roblox.com/games/95005655847519/The-Horror-Actracion-LEAN-DESCRIPTION" target="_blank">
+                    <img src="https://i.postimg.cc/5YX7SYYc/IMG-7667.jpg">
+                </a>
+
+                <a href="https://www.roblox.com/games/123514117242469/STEAL-FROM-BRAINROTS-BETA" target="_blank">
+                    <img src="https://i.postimg.cc/rd8NQdHj/IMG-7665-(1).jpg">
+                </a>
+
+                <a href="https://www.roblox.com/games/101908925015733/SOVREVIVE-LA-NOCHE-DELUXE" target="_blank">
+                    <img src="https://i.postimg.cc/Fd0FzRrf/IMG-7666.jpg">
+                </a>
+
+            </div>
+        </div>`;
+    }
+
+    else if(opcion==="contacto"){
+        c.innerHTML=`
+        <div>
+            Contacto oficial 💌<br><br>
+            <a class="contact-btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=TheGatiniStudios@gmail.com" target="_blank">
+                TheGatiniStudios@gmail.com
+            </a>
+        </div>`;
+    }
+}
+
+</script>
+
+</body>
+</html>
